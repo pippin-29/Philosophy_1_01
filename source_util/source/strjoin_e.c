@@ -6,11 +6,11 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:01:41 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 10:29:39 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:58:39 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/strjoin_e.h"
+#include "../includes/source_util.h"
 
 int	ft_strlen(char *s)
 {

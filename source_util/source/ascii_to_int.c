@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u32_to_ascii.c                                     :+:      :+:    :+:   */
+/*   ascii_to_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:56:14 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 11:05:09 by dhadding         ###   ########.fr       */
+/*   Created: 2023/12/05 11:31:35 by dhadding          #+#    #+#             */
+/*   Updated: 2023/12/05 11:32:17 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/source_util.h"
 
-char	*u32_to_ascii(u32 c)
+int	ascii_2_int(char *str)
 {
-	char	*str;
-	u32		num;
-	u32		len;
+	int	i;
+	int	negator;
+	int	result;
 
-	len = numlen(c);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	if (c < 0)
+	i = 0;
+	negator = 1;
+	result = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		str[0] = '-';
-		num = -c;
+		if (str[i] == '-')
+			negator = -1;
+		i++;
 	}
-	else
-		num = c;
-	if (num == 0)
-		str[0] = '0';
-	str[len] = '\0';
-	while (num != 0)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		str[len - 1] = (num % 10) + '0';
-		num = num / 10;
-		len--;
+		result = (result * 10) + (str[i] - '0');
+		i++;
 	}
-	return (str);
+	return (result * negator);
 }

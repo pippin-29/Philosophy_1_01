@@ -1,21 +1,28 @@
 NAME				:= philo
 
 ADDSAN				:= -g -fsanitize=address
+
 SOURCE				:= 	\
 						source/error.c \
+						source/exit.c \
 						source/init.c \
+						source/life1.c \
+						source/life2.c \
 						source/main.c \
 						source/message1.c \
 						source/message2.c \
 						source/parse.c \
+						source/supervisor.c \
 						source/time.c
 
 SOURCE_UTIL			:=  \
-						source_util/strjoin_e.c \
-						source_util/u32_to_ascii.c \
-						source_util/u64_to_ascii.c \
+						source_util/source/ascii_to_int.c \
+						source_util/source/digit.c \
+						source_util/source/strjoin_e.c \
+						source_util/source/u32_to_ascii.c \
+						source_util/source/u64_to_ascii.c \
 
-COMPILE				:= gcc -o $(NAME) -c $(SOURCE) $(SOURCE_UTIL) $(ADDSAN)
+COMPILE				:= gcc -o $(NAME) $(SOURCE) $(SOURCE_UTIL) $(ADDSAN)
 
 all:
 					$(COMPILE)
@@ -46,3 +53,5 @@ fclean:
 					rm $(NAME)
 
 re: all
+
+.SILENT:

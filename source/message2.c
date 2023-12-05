@@ -6,43 +6,53 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:14:10 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 11:21:23 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:36:28 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-char *sleeping_message(t_args *args)
+void print_sleeping_message(t_args *args)
 {
-	args->program->sleeping_message = strjoin_e(4, args->program->ts, " ",
+	char *sleeping_message;	
+
+	sleeping_message = strjoin_e(4, args->program->ts, " ",
 			args->program->n, " is sleeping.");
-	return (args->program->sleeping_message);
+	printf("%s\n", sleeping_message);
 }
 
-char *progression_message(t_args *args)
+void print_progression_message(t_args *args)
 {
-	args->program->progression_message = strjoin_e(4, args->program->ts, " ",
+	char *progression_message;
+
+	progression_message = strjoin_e(4, args->program->ts, " ",
 			args->program->n, " has progressed.");
-	return (args->program->progression_message);
+	printf("%s\n", progression_message);
 }
 
-char *thinking_message(t_args *args)
+void print_thinking_message(t_args *args)
 {
-	args->program->thinking_message = strjoin_e(4, args->program->ts, " ",
+	char *thinking_message;
+
+	thinking_message = strjoin_e(4, args->program->ts, " ",
 			args->program->n, " is thinking.");
-	return(args->program->thinking_message);
+	printf("%s\n", thinking_message);
 }
 
-char *requisition_message(t_args *args)
+void print_requisition_message(t_args *args)
 {
-	args->program->requisiton_message = strjoin_e(4, args->program->ts, " ",
+	char *requisition_message;
+
+	requisition_message = strjoin_e(4, args->program->ts, " ",
 			args->program->n, " has taken a fork.");
-	return(args->program->requisiton_message);
+	printf("%s\n", requisition_message);
 }
 
-char *eating_message(t_args *args)
+void print_eating_message(t_args *args)
 {
-	args->program->eating_message = strjoin_e(4, args->program->ts, " ",
+	char *eating_message;
+
+	eating_message = strjoin_e(4, args->program->ts, " ",
 				args->program->n, " is eating.");
-	return (args->program->eating_message);
+	printf("%s\n",eating_message);
 }

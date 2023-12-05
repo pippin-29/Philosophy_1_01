@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:27:24 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 11:05:42 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:41:36 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,24 @@ typedef struct s_strjoin_e
 	int		j;
 }	t_sje;
 
+/// ASCII_TO_INT_C ///
+int		ascii_2_int(char *str);
+
+/// DIGIT_C ///
+int		digit(char c);
+
 /// STRJOIN_E_C ///
 int		ft_strlen(char *s);
 void	*malloc_strlen_n(unsigned int c, va_list arg);
 char	*strjoin_e(unsigned int c, ...);
 
 /// U32_TO_ASCII ///
+u32		u32numlen(u32 n);
 char	*u32_to_ascii(u32 c);
 
 /// U64_TO_ASCII ///
+u32		u64numlen(u64 n);
 char	*u64_to_ascii(u64 c);
-u32		numlen(int n);
+
 
 #endif

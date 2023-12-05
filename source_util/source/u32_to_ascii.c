@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u64_to_ascii.c                                     :+:      :+:    :+:   */
+/*   u32_to_ascii.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:56:17 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 11:04:34 by dhadding         ###   ########.fr       */
+/*   Created: 2023/12/05 10:56:14 by dhadding          #+#    #+#             */
+/*   Updated: 2023/12/05 15:42:06 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/source_util.h"
 
-u32	numlen(int n)
+u32	u32numlen(u32 n)
 {
 	u32	len;
 
 	if (n == 0)
 		return (1);
 	len = 0;
-	if (n < 0)
-		len += 1;
 	while (n != 0)
 	{
 		n /= 10;
@@ -29,13 +27,13 @@ u32	numlen(int n)
 	return (len);
 }
 
-char	*u64_to_ascii(u64 c)
+char	*u32_to_ascii(u32 c)
 {
 	char	*str;
-	u64		num;
+	u32		num;
 	u32		len;
 
-	len = numlen(c);
+	len = u32numlen(c);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);

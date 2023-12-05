@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:05:39 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 10:10:58 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:35:31 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,32 @@ void	init_philos(t_args *args)
 	int	i;
 
 	i = 0;
+	args->philos = malloc(sizeof(t_philos) * (args->num_of_philos + 1));
 	while (i < args->num_of_philos)
 	{
 		args->philos[i] = malloc(sizeof(t_philos));
 		args->philos[i]->fork_c = 0;
-		args->philos[i]->id = i + 1;
+		args->philos[i]->fork_id[0] = -1;
+		args->philos[i]->fork_id[1] = -1;
 		args->philos[i]->state = 0;
+		args->philos[i]->ego = i + 1;
 		i++;
 	}
+	args->philos[i] = NULL;
 }
 
 void	init_program(t_args *args)
 {
+	int i;
+
+	i = 0;
 	args->program = malloc(sizeof(t_program));
-	args->program->died_message = NULL;
-	args->program->eating_message = NULL;
-	args->program->sleeping_message = NULL;
-	args->program->thinking_message = NULL;
+	args->program->forks = malloc(sizeof(pthread_mutex_t) * args->num_of_philos);
+	while (i < args->num_of_philos)
+		pthread_mutex_init(&args->program->forks[i++], NULL);
+
+	args->program->n = NULL;
+	args->program->ts = NULL;
 	args->program->timestamp = 0;
 }
 

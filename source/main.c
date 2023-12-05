@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 08:58:34 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 11:25:18 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:01:36 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int	main(int argc, char **argv)
 		init_structs(args, argv);
 	else
 		return (error_message());
-	return (run(args));
+	args->program->timestamp = get_time();
+	life(args);
+	// supervise(args);
 }

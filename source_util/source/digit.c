@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run.c                                              :+:      :+:    :+:   */
+/*   digit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 11:23:17 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/05 11:23:54 by dhadding         ###   ########.fr       */
+/*   Created: 2023/12/05 11:35:59 by dhadding          #+#    #+#             */
+/*   Updated: 2023/12/05 12:05:00 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../includes/source_util.h"
 
-void	run(t_args *args)
+int	digit(char c)
 {
-	
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
